@@ -7,7 +7,6 @@ create_variable.py
 cloud9-environment/*
 config/*
 controldb/*
-glue_catalog/*
 metastore/*
 iam_group_python_developer/*
 *.hcl
