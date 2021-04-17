@@ -21,7 +21,7 @@ That way I decided to challenge myself to deploy my own version of datalake and 
 If this project is not complete don't worry, it'll be soon!
 
 # Solution Diagram
-<img src="https://github.com/subtilf/datalake-on-aws/blob/main/docs/images/datalake_solution_diagram.png?raw=true" width="500" height="500">
+<img src="https://github.com/subtilf/datalake-on-aws/blob/main/docs/images/datalake_solution_diagram.png?raw=true" width="600" height="500">
 
 
 # About the project
