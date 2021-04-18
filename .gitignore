@@ -5,7 +5,8 @@ airflow*
 tf_vars_init.txt
 create_variable.py
 cloud9-environment/*
-controldb/*
+controldb/dynamodb/*
+controldb/mysql/lab.tfvars
 metastore/*
 iam_group_python_developer/*
 *.hcl

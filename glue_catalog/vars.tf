@@ -1,9 +1,9 @@
-variable "main_region"{
-    default = "us-east-2"
+variable "main_region" {
+  default = "us-east-2"
 }
 
-variable "main_vpc"{
-    default = "vpc-0a39577fd48d8bf37"
+variable "main_vpc" {
+  default = "vpc-0a39577fd48d8bf37"
 }
 
 variable "cidr_subnet_dmz" {

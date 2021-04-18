@@ -1,0 +1,5 @@
+# This file is a copy of my own tfvars file,  but has fake data
+# To make that works replace the values below for your vpc configuration  
+subnet_list = ["subnet-1", "subnet-2"]
+vpc_id = "vpc-1"
+cidr_vpc = "Your IP Range. Ex:172.40.0.0/26"

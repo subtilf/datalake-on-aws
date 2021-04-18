@@ -3,26 +3,26 @@ provider "aws" {
 }
 
 terraform {
-    required_version = ">= 0.14"
-    backend "s3"{
+  required_version = ">= 0.14"
+  backend "s3" {
     bucket = "s3-sublab-tfstate"
-    key = "datalake/glue_catalog.tfstate"
+    key    = "datalake/glue_catalog.tfstate"
     region = "us-east-2"
   }
 }
 
-module "kms_datalake_glue_catalog_key"{
-    source = "../modules/kms"
-    kms_desc = "Key used to encrypt all glue catalog"
-    tags = {
-        name  = "kms-sublab-dl-glue-catalog-lab"
-        env   = "lab"
-        owner = "terraform"
-    }
+module "kms_datalake_glue_catalog_key" {
+  source   = "../modules/kms"
+  kms_desc = "Key used to encrypt all glue catalog"
+  tags = {
+    name  = "kms-sublab-dl-glue-catalog-lab"
+    env   = "lab"
+    owner = "terraform"
+  }
 }
 
 resource "aws_glue_catalog_database" "aws_glue_catalog_database_raw" {
-  name = "glue-catalog-datalake-lab"
+  name        = "glue-catalog-datalake-lab"
   description = "Database responsible for store all metadata relationed to each layer of datalake."
 }
 

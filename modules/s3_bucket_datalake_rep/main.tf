@@ -2,10 +2,10 @@
 
 resource "aws_s3_bucket" "this" {
   bucket = var.bucket_name
-  acl = var.acl
+  acl    = var.acl
   #Grant not declared
   #Policy not declared
-  tags = var.tags
+  tags          = var.tags
   force_destroy = var.force_destroy
   #Website not declared
   #cors_rule not declared
@@ -26,7 +26,7 @@ resource "aws_s3_bucket" "this" {
 
     expiration {
       days = var.lcr_exp_days
-    } 
+    }
   }
   #acceleration_status not declared
   #request_payer not declared

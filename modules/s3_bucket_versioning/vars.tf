@@ -1,19 +1,19 @@
-variable "bucket_name"{
+variable "bucket_name" {
 
 }
 
-variable "acl"{
-    default = "private"
+variable "acl" {
+  default = "private"
 }
 
-variable "tags"{
-    type = map
+variable "tags" {
+  type = map(any)
 }
 
-variable "force_destroy"{
-    default = "false"
+variable "force_destroy" {
+  default = "false"
 }
 
-variable "default_versioning"{
-    default = true
+variable "default_versioning" {
+  default = true
 }
