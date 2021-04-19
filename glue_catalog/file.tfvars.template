@@ -1,0 +1,14 @@
+# This file is a copy of my own tfvars file,  but has fake data
+# To make that works replace the values below for your own configuration 
+
+# The region that you want to use
+main_region = "us-east-1"
+
+# The name of kms key - Just for tags
+kms-datalake-name = "kms_datalake_glue_catalog_key"
+
+# The environment that you are going to deploy. Ex: DEV, QA and PRD
+environment = "lab"
+
+# The name of your glue catalog
+aws-glue-catalog-name = "glue-catalog-name"

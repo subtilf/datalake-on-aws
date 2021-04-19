@@ -15,14 +15,14 @@ module "kms_datalake_glue_catalog_key" {
   source   = "../modules/kms"
   kms_desc = "Key used to encrypt all glue catalog"
   tags = {
-    name  = "kms-sublab-dl-glue-catalog-lab"
+    name  = local.kms-datalake-name
     env   = "lab"
     owner = "terraform"
   }
 }
 
 resource "aws_glue_catalog_database" "aws_glue_catalog_database_raw" {
-  name        = "glue-catalog-datalake-lab"
+  name        = local.aws-glue-catalog-name
   description = "Database responsible for store all metadata relationed to each layer of datalake."
 }
 
