@@ -1,5 +1,21 @@
 # This file is a copy of my own tfvars file,  but has fake data
-# To make that works replace the values below for your vpc configuration  
+# To make that works replace the values below for your vpc configuration 
+
+# The environment that you are going to deploy. Ex: DEV, QA and PRD
+environment = "lab"
+
+# The list of subnets to deploy your RDS
 subnet_list = ["subnet-1", "subnet-2"]
+
+# Your VPC ID and CIDR
 vpc_id = "vpc-1"
 cidr_vpc = "Your IP Range. Ex:172.40.0.0/26"
+
+# The name of your RDS subnet group
+controldb-subnet-group-name = "rds-subnet-gp-name"
+
+# The name of the secret related to your database
+secret_id = "secret_name"
+
+# The identifier related to your RDS instance
+identifier = "rds-identifier"

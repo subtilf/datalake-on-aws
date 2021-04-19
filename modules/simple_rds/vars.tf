@@ -54,9 +54,9 @@ variable "final_snapshot_identifier" {
   default = "rds-final-snapshot"
 }
 
-#variable "identifier" {
-#  type = string
-#}
+variable "identifier" {
+  type = string
+}
 
 #variable "kms_key" {
 #  type = string

@@ -19,7 +19,7 @@ resource "aws_db_instance" "this" {
   engine_version                  = var.engine_version
   final_snapshot_identifier       = var.final_snapshot_identifier
   # iam_database_authentication_enabled not declared
-  # identifier not declared
+  identifier = var.identifier
   # identifier_prefix not declared
   instance_class = var.instance_class
   # iops not declared

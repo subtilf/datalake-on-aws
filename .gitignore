@@ -13,3 +13,4 @@ iam_group_python_developer/*
 .terraform/*
 *.sh
 /vars.tf
+*.tfvars

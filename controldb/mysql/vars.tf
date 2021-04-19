@@ -17,3 +17,25 @@ variable "vpc_id"{
 variable "cidr_vpc"{
  type = string
 }
+
+variable "rds-controldb-sg"{
+  type = string
+  default = "rds-controldb-sg"
+}
+
+variable "environment"{
+  type = string
+}
+
+variable "controldb-subnet-group-name"{
+  type = string
+}
+
+variable "secret_id"{
+  type = string
+  sensitive = true
+}
+
+variable "identifier"{
+  type = string
+}
