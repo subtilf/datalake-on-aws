@@ -1,3 +1,11 @@
 variable "main_region" {
-  default = "us-east-2"
+  type = string
+}
+
+variable "environment"{
+  type = string
+}
+
+variable "bucket_name"{
+  type = string
 }

@@ -12,9 +12,9 @@ terraform {
 
 module "s3_config_bucket" {
   source      = "../modules/s3_bucket_versioning"
-  bucket_name = "s3-sublab-config-lab"
+  bucket_name = local.bucket_name
   tags = {
-    name  = "s3-sublab-config-lab"
+    name  = local.bucket_name
     env   = "lab"
     owner = "terraform"
   }
