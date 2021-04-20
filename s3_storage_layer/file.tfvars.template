@@ -1,0 +1,31 @@
+# This file is a copy of my own tfvars file,  but has fake data
+# To make that works replace the values below for your own configuration
+
+# The environment that you are going to deploy. Ex: DEV, QA and PRD
+environment = "lab"
+# Your acount name is used to create the resources names
+account_name = "myaccountname"
+# The name of kms key - Just for tags
+kms-datalake-name = "my-dl-kms-key"
+# The list of actions on bucket level that you will need to replicate files to the replication bucket
+# This field I let as my own file, but you can change as you wish
+policy-bucket-actions = ["s3:ListBucket",
+ "s3:GetReplicationConfiguration",
+ "s3:GetObjectVersionForReplication",
+ "s3:GetObjectVersionAcl",
+ "s3:GetObjectVersionTagging",
+ "s3:GetObjectRetention",
+ "s3:GetObjectLegalHold"]
+# The list of actions on object level that you will need to replicate files to the replication bucket
+# This field I let as my own file, but you can change as you wish
+policy-bucket-object-actions = ["s3:ReplicateObject",
+ "s3:ReplicateDelete",
+ "s3:ReplicateTags",
+ "s3:GetObjectVersionTagging",
+ "s3:ObjectOwnerOverrideToBucketOwner"]
+# The name of the first datalake bucket layer
+raw_bucket_name = "first-example"
+# The name of the second datalake bucket layer
+standard_bucket_name = "second-example"
+# The name of the third datalake bucket layer
+creation_bucket_name = "third-example"
