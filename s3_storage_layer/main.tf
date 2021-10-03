@@ -15,7 +15,7 @@ terraform {
 ##################################################
 
 module "kms_datalake_key" {
-  source   = "../modules/kms"
+  source   = "git@github.com:subtilf-tf-mod/aws-kms.git"
   kms_desc = "Key used to create all s3 environment related to the Data Lake!"
   tags = {
     name  = local.kms-datalake-name
@@ -29,7 +29,7 @@ module "kms_datalake_key" {
 ###########################
 
 module "iam_role_s3_raw_layer" {
-  source        = "../modules/iam_role"
+  source        = "git@github.com:subtilf-tf-mod/aws-iam-role.git"
   iam_role_name = local.raw-iam-role-name
   tags = {
     name  = local.raw-iam-role-name
@@ -101,7 +101,7 @@ data "aws_iam_policy_document" "iam_policy_doc_raw" {
 }
 
 module "iam_policy_s3_raw_layer" {
-  source          = "../modules/iam_policy"
+  source          = "git@github.com:subtilf-tf-mod/aws-iam-policy.git"
   iam_policy_name = local.raw-iam-policy-name
   iam_policy_desc = local.raw-iam-policy-desc
   iam_policy_path = "/"
@@ -118,7 +118,7 @@ resource "aws_iam_role_policy_attachment" "iam_policy_attachment_s3_raw_layer" {
 ##############################
 
 module "s3_raw_layer" {
-  source      = "../modules/s3_bucket_datalake"
+  source      = "git@github.com:subtilf-tf-mod/aws-s3-datalake.git"
   bucket_name = local.raw-bucket-name
   tags = {
     name  = local.raw-bucket-name
@@ -138,12 +138,12 @@ module "s3_raw_layer" {
 }
 
 module "s3_bucket_pub_access_block_raw" {
-  source    = "../modules/s3_bucket_put_access_block"
+  source    = "git@github.com:subtilf-tf-mod/aws-s3-pub-access-block.git"
   BUCKET_ID = module.s3_raw_layer.bucket_id
 }
 
 module "s3_raw_layer_rep" {
-  source      = "../modules/s3_bucket_datalake_rep"
+  source      = "git@github.com:subtilf-tf-mod/aws-s3-datalake-replica.git"
   bucket_name = local.raw-rep-bucket-name
   tags = {
     name  = local.raw-rep-bucket-name
@@ -161,7 +161,7 @@ module "s3_raw_layer_rep" {
 }
 
 module "s3_bucket_pub_access_block_raw_rep" {
-  source    = "../modules/s3_bucket_put_access_block"
+  source    = "git@github.com:subtilf-tf-mod/aws-s3-pub-access-block.git"
   BUCKET_ID = module.s3_raw_layer_rep.bucket_id
 }
 
@@ -170,7 +170,7 @@ module "s3_bucket_pub_access_block_raw_rep" {
 ################################
 
 module "iam_role_s3_standard_layer" {
-  source        = "../modules/iam_role"
+  source        = "git@github.com:subtilf-tf-mod/aws-iam-role.git"
   iam_role_name = local.standard-iam-role-name
   tags = {
     name  = local.standard-iam-role-name
@@ -242,7 +242,7 @@ data "aws_iam_policy_document" "iam_policy_doc_standard" {
 }
 
 module "iam_policy_s3_standard_layer" {
-  source          = "../modules/iam_policy"
+  source          = "git@github.com:subtilf-tf-mod/aws-iam-policy.git"
   iam_policy_name = local.standard-iam-policy-name
   iam_policy_desc = local.standard-iam-policy-desc
   iam_policy_path = "/"
@@ -259,7 +259,7 @@ resource "aws_iam_role_policy_attachment" "iam_policy_attachment_s3_standard_lay
 ###################################
 
 module "s3_standard_layer" {
-  source      = "../modules/s3_bucket_datalake"
+  source      = "git@github.com:subtilf-tf-mod/aws-s3-datalake.git"
   bucket_name = local.standard-bucket-name
   tags = {
     name  = local.standard-bucket-name
@@ -279,12 +279,12 @@ module "s3_standard_layer" {
 }
 
 module "s3_bucket_pub_access_block_standard" {
-  source    = "../modules/s3_bucket_put_access_block"
+  source    = "git@github.com:subtilf-tf-mod/aws-s3-pub-access-block.git"
   BUCKET_ID = module.s3_standard_layer.bucket_id
 }
 
 module "s3_standard_layer_rep" {
-  source      = "../modules/s3_bucket_datalake_rep"
+  source      = "git@github.com:subtilf-tf-mod/aws-s3-datalake-replica.git"
   bucket_name = local.standard-rep-bucket-name
   tags = {
     name  = local.standard-rep-bucket-name
@@ -302,7 +302,7 @@ module "s3_standard_layer_rep" {
 }
 
 module "s3_bucket_pub_access_block_standard_rep" {
-  source    = "../modules/s3_bucket_put_access_block"
+  source    = "git@github.com:subtilf-tf-mod/aws-s3-pub-access-block.git"
   BUCKET_ID = module.s3_standard_layer_rep.bucket_id
 }
 
@@ -311,7 +311,7 @@ module "s3_bucket_pub_access_block_standard_rep" {
 ################################
 
 module "iam_role_s3_creation_layer" {
-  source        = "../modules/iam_role"
+  source        = "git@github.com:subtilf-tf-mod/aws-iam-role.git"
   iam_role_name = local.creation-iam-role-name
   tags = {
     name  = local.creation-iam-role-name
@@ -383,7 +383,7 @@ data "aws_iam_policy_document" "iam_policy_doc_creation" {
 }
 
 module "iam_policy_s3_creation_layer" {
-  source          = "../modules/iam_policy"
+  source          = "git@github.com:subtilf-tf-mod/aws-iam-policy.git"
   iam_policy_name = local.creation-iam-policy-name
   iam_policy_desc = local.creation-iam-policy-desc
   iam_policy_path = "/"
@@ -400,7 +400,7 @@ resource "aws_iam_role_policy_attachment" "iam_policy_attachment_s3_creation_lay
 ###################################
 
 module "s3_creation_layer" {
-  source      = "../modules/s3_bucket_datalake"
+  source      = "git@github.com:subtilf-tf-mod/aws-s3-datalake.git"
   bucket_name = local.creation-bucket-name
   tags = {
     name  = local.creation-bucket-name
@@ -420,12 +420,12 @@ module "s3_creation_layer" {
 }
 
 module "s3_bucket_pub_access_block_creation" {
-  source    = "../modules/s3_bucket_put_access_block"
+  source    = "git@github.com:subtilf-tf-mod/aws-s3-pub-access-block.git"
   BUCKET_ID = module.s3_creation_layer.bucket_id
 }
 
 module "s3_creation_layer_rep" {
-  source      = "../modules/s3_bucket_datalake_rep"
+  source      = "git@github.com:subtilf-tf-mod/aws-s3-datalake-replica.git"
   bucket_name = local.creation-rep-bucket-name
   tags = {
     name  = local.creation-rep-bucket-name
@@ -443,6 +443,6 @@ module "s3_creation_layer_rep" {
 }
 
 module "s3_bucket_pub_access_block_creation_rep" {
-  source    = "../modules/s3_bucket_put_access_block"
+  source    = "git@github.com:subtilf-tf-mod/aws-s3-pub-access-block.git"
   BUCKET_ID = module.s3_creation_layer_rep.bucket_id
 }
