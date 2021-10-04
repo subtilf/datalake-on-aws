@@ -12,7 +12,7 @@ terraform {
 }
 
 module "kms_datalake_glue_catalog_key" {
-  source   = "../modules/kms"
+  source   = "git@github.com:subtilf-tf-mod/aws-kms.git"
   kms_desc = "Key used to encrypt all glue catalog"
   tags = {
     name  = local.kms-datalake-name
