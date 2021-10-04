@@ -12,7 +12,7 @@ terraform {
 }
 
 module "rds_security_group"{
-  source = "../../modules/aws_security_group"
+  source = "git@github.com:subtilf-tf-mod/aws-ec2-security-group.git"
   sg_name = local.rds-controldb-sg
   desc = "Security group responsible to allow just connections from VPC to the instance"
   vpc_id = var.vpc_id
@@ -24,7 +24,7 @@ module "rds_security_group"{
 }
 
 module "rds_sg_rule_100"{
-  source      = "../../modules/aws_security_group_rule"
+  source      = "git@github.com:subtilf-tf-mod/aws-ec2-security-group-rule.git"
   type        = "ingress"
   cidr_blocks = [var.cidr_vpc]
   from_port   = "3306"
@@ -58,7 +58,7 @@ locals {
 }
 
 module "rds_mysql_controldb"{
-  source = "../../modules/simple_rds"
+  source = "git@github.com:subtilf-tf-mod/aws-rds-basic.git"
   db_subnet_group_name = aws_db_subnet_group.controldb_subnet_group.id
   enabled_cloudwatch_logs_exports = ["error", "general", "slowquery"]
   engine = "mysql"
