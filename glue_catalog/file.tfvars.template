@@ -12,3 +12,9 @@ environment = "lab"
 
 # The name of your glue catalog
 aws-glue-catalog-name = "glue-catalog-name"
+
+# Your acount name is used to create the resources names
+account_name = "myaccountname"
+
+# Your user or team name
+owner = "MyTeam"

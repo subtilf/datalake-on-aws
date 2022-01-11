@@ -1,4 +1,4 @@
 locals {
-  kms-datalake-name = format("%s%s%s", var.kms-datalake-name, "-", var.environment)
-  aws-glue-catalog-name = format("%s%s%s", var.aws-glue-catalog-name, "-", var.environment)
+  kms_datalake_name = format("%s-%s-%s-%s", "kms", var.account_name, var.kms_datalake_name, var.environment)
+  glue_catalog_name = format("%s-%s-%s-%s", "glue", var.account_name, var.glue_catalog_name, var.environment)
 }
