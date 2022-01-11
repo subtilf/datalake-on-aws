@@ -24,8 +24,10 @@ policy-bucket-object-actions = ["s3:ReplicateObject",
  "s3:GetObjectVersionTagging",
  "s3:ObjectOwnerOverrideToBucketOwner"]
 # The name of the first datalake bucket layer
-raw_bucket_name = "first-example"
+dl_first_layer_name = "first-example"
 # The name of the second datalake bucket layer
-standard_bucket_name = "second-example"
+dl_second_layer_name = "second-example"
 # The name of the third datalake bucket layer
-creation_bucket_name = "third-example"
+dl_third_layer_name = "third-example"
+# Your user or team name
+owner = "MyTeam"
